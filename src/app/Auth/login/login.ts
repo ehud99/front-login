@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { Auth } from '../../services/auth';
 import { environment } from '../../../environments/environment';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -28,9 +29,25 @@ export class Login {
   login(){
     
     this.authService.login(this.formulario.value).subscribe(res => {
-      console.log(res)
+      if(res === true){
+        localStorage.setItem("user", JSON.stringify(this.authService.user));
+        this.router.navigateByUrl("/sesion")
+      }else{
+        
+        Swal.fire({
+          title: "Error...",
+          icon: "error",
+          text: "Credenciales Incorrectas",
+          backdrop: `
+          #0000009d
+            url("https://cdn.discordapp.com/emojis/717198249383034911.gif?v=1")
+            left top
+            no-repeat
+          `
+        })
+      }
+      
     })
-
-    //this.router.navigateByUrl("/sesion")
+    
   }
 }
