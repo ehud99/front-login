@@ -1,39 +1,57 @@
 
 <div class="row container">
-<form class="col s12">
+<form [formGroup]="registro" class="col s12">
     <div class="row">
     <div class="col s12">
         <h2>Registro</h2>
         <hr />
     </div>
-        <div class="input-field col s12">
-        <input id="user" type="text" class="validate">
+    <div class="input-field col s12">
+        <input formControlName="username" id="user" type="text" class="validate">
         <label for="user">Usuario</label>
         <span class="helper-text" data-error="wrong" data-success="right">
             Ingresa tu nombre de usuario
         </span>
     </div>
     <div class="input-field col s12">
-        <input id="email" type="email" class="validate">
-        <label for="email">Email</label>
-        <span class="helper-text" data-error="wrong" data-success="right">
-            Ingresa tu correo electronico: ejemplo@mail.com
-        </span>
-    </div>
-    <div class="input-field col s12">
-        <input id="password" type="password" class="validate">
+        <input formControlName="password" id="password" type="password" class="validate">
         <label for="password">Contraseña</label>
         <span class="helper-text" data-error="wrong" data-success="right">
             Crea una contraseña
         </span>
     </div>
     <div class="input-field col s12">
-        <input id="rPassword" type="password" class="validate">
-        <label for="rPassword">Confirmar Contraseña</label>
+        <input formControlName="verifyPassword" id="verifyPassword" type="password" class="validate">
+        <label for="verifyPassword">Confirmar Contraseña</label>
         <span class="helper-text" data-error="wrong" data-success="right">
             Vuelve a escribir tu contraseña
         </span>
     </div>
+
+    <div class="input-field col s12">
+        <input formControlName="firstname" id="firstname" type="text" class="validate">
+        <label for="firstname">Nombre</label>
+        <span class="helper-text" data-error="wrong" data-success="right">
+            Ingresa tu Nombre Completo
+        </span>
+    </div>
+
+    <div class="input-field col s12">
+        <input formControlName="lastname" id="lastname" type="text" class="validate">
+        <label for="lastname">Apellidos</label>
+        <span class="helper-text" data-error="wrong" data-success="right">
+            Ingrese sus Apellidos
+        </span>
+    </div>
+
+    <div class="input-field col s12">
+        <input formControlName="country" id="country" type="text" class="validate">
+        <label for="country">Pais</label>
+        <span class="helper-text" data-error="wrong" data-success="right">
+            Ingrese su Pais de Origen
+        </span>
+    </div>
+
     <div class="input-field col s12">
         <button class="btn waves-effect waves-light" type="submit" name="action">Comenzar
         </button>

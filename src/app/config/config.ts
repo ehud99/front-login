@@ -1,0 +1,1 @@
+export const urlServiciosBack = "http://localhost:5000"
