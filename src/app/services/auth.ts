@@ -20,8 +20,24 @@ export class Auth {
 
   }
 
-  register(){
-
+  register(data: any){
+    return this.httpClient
+    .post<any>(`${this.urlBack}/auth/register`, data)
+    .pipe(
+      tap((res) => {
+        if(res.token){
+          this._user = {
+          token: res.token
+        }
+        }else{
+          this._user = null;
+        }
+      }),
+      map((res) => !!res.token),
+      catchError(err => {
+        return of ('credenciales incorrectas');
+      })
+    )
   }
 
   login(data: any){
