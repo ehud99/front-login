@@ -8,6 +8,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIcon } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { Usuario } from '../usuario/usuario';
 
 @Component({
   selector: 'app-admin',
@@ -42,6 +43,12 @@ export class Admin {
       this.allUsers = res
       this.dataSource.data = this.allUsers
     })
+  }
+
+  update(usuario: any){
+    const {id,role} = usuario
+
+    this.router.navigateByUrl(`/sesion/${id}/${role}`)
   }
 
   delete(id: string){

@@ -19,7 +19,7 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> Acciones </th>
       <td mat-cell *matCellDef="let usuario">
-        <button mat-icon-button aria-label="Editar">
+        <button (click)="update(usuario)" mat-icon-button aria-label="Editar">
           <mat-icon>edit</mat-icon>
         </button>
         <button (click)="delete(usuario.id)" mat-icon-button aria-label="Eliminar">

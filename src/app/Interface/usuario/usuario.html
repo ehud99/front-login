@@ -1,0 +1,19 @@
+<div class="container">
+    <form [formGroup]="editarUsuario" (ngSubmit)="update()">
+        <div class="row">
+            <h2>Actualizar Usuario</h2>
+            <div class="col s12">
+            <div class="row">
+                <div class="input-field col s9">
+                
+                <input formControlName="editUser" type="text" id="crear" class="validate">
+                <label for="crear">Nuevo Nombre</label>
+                </div>
+                <div class="input-field col s3">
+                    <button class="btn">Editar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </form>
+</div>

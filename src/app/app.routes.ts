@@ -26,14 +26,14 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'admin', pathMatch: 'full' },
       {
-        path: 'welcome',
-        loadComponent: () =>
-          import('./Interface/welcome/welcome').then(m => m.Welcome),
-      },
-      {
         path: 'admin',
         loadComponent: () =>
           import('./Interface/admin/admin').then(m => m.Admin)
+      },
+      {
+        path: ':id/:role',
+        loadComponent: () =>
+          import('./Interface/usuario/usuario').then(m => m.Usuario),
       }
     ]
   },
