@@ -24,7 +24,7 @@ export const routes: Routes = [
     path: 'sesion',
     canActivate: [authGuard],
     children: [
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '', redirectTo: 'admin', pathMatch: 'full' },
       {
         path: 'welcome',
         loadComponent: () =>

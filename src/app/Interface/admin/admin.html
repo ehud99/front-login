@@ -1,1 +1,42 @@
-<p>admin works!</p>
+<div class="container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let usuario"> {{usuario.firstname}} {{usuario.lastname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pais">
+      <th mat-header-cell *matHeaderCellDef> Pais </th>
+      <td mat-cell *matCellDef="let usuario"> {{usuario.country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="rol">
+      <th mat-header-cell *matHeaderCellDef> Rol </th>
+      <td mat-cell *matCellDef="let usuario"> {{usuario.role}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let usuario">
+        <button mat-icon-button aria-label="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="delete(usuario.id)" mat-icon-button aria-label="Eliminar">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-divider/>
+  <br/>
+
+  <div>
+    <button (click)="logout()" matButton="elevated">Cerrar Sesión</button>
+  </div>
+
+</div>
